@@ -1,0 +1,58 @@
+================================================================================
+JEU TAQUIN - Instructions d'installation et d'utilisation
+================================================================================
+
+CONTENU DU PACKAGE:
+  - taquin.exe  : Le jeu Taquin (executable)
+  - SDL2.dll    : Bibliotheque necessaire au fonctionnement du jeu
+  - LISEZ_MOI.txt : Ce fichier d'instructions
+
+================================================================================
+INSTALLATION
+================================================================================
+
+1. Decompressez ou copiez tout le contenu du dossier dans un meme endroit
+   (par exemple: C:\Jeux\Taquin\ ou sur le Bureau)
+
+2. IMPORTANT: Les deux fichiers (taquin.exe et SDL2.dll) doivent etre
+   dans le MEME dossier pour que le jeu fonctionne.
+
+3. Double-cliquez sur taquin.exe pour lancer le jeu.
+
+================================================================================
+UTILISATION
+================================================================================
+
+- Lors du lancement, entrez la taille du plateau (3, 4 ou 5)
+
+- Utilisez les FLECHES du clavier pour deplacer les tuiles:
+  * Fleche HAUT    : Deplace la tuile vers le haut
+  * Fleche BAS     : Deplace la tuile vers le bas
+  * Fleche GAUCHE  : Deplace la tuile vers la gauche
+  * Fleche DROITE  : Deplace la tuile vers la droite
+
+- Ou cliquez avec la SOURIS sur une tuile adjacente a la case vide
+
+- Appuyez sur R pour melanger le plateau
+
+- Appuyez sur ESC pour quitter
+
+================================================================================
+RESOLUTION DU PUZZLE
+================================================================================
+
+Le but est de reorganiser les tuiles numerotees dans l'ordre croissant
+en laissant la case vide en bas a droite.
+
+Bon jeu!
+
+================================================================================
+SUPPORT TECHNIQUE
+================================================================================
+
+Si vous rencontrez une erreur "SDL2.dll introuvable":
+  - Verifiez que SDL2.dll est bien dans le meme dossier que taquin.exe
+  - Redemarrez l'ordinateur si necessaire
+
+================================================================================
+

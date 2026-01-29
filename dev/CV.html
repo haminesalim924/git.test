@@ -1,0 +1,389 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV hamine salim</title>
+   <style>
+    
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #2b2b2b;
+}
+
+.cv {
+  width: 900px;
+  margin: 20px auto;
+  border: 1px solid #e6e6e6;
+}
+
+.header {
+  display: flex;
+  height: 220px;
+}
+
+.header-left {
+  width: 60%;
+  padding: 30px 30px 0 40px;
+}
+
+.name {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.name .first {
+  color: #4fc3ff;
+  font-weight: normal;
+}
+
+.name .last {
+  color: #1f2a35;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.dots {
+  margin-top: 12px;
+  width: 260px;
+  border-bottom: 3px dotted #3a3a3a;
+  opacity: 0.6;
+}
+
+.header-right {
+  width: 40%;
+  position: relative;
+  
+  background: linear-gradient(135deg, #e8f7ff 0%, #bfeaff 35%, #58cfff 70%, #1fb3ff 100%);
+  overflow: hidden;
+}
+
+
+.header-right:before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -60px;
+  width: 120%;
+  height: 140%;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.0) 0%,
+    rgba(255,255,255,0.0) 35%,
+    rgba(255,255,255,0.45) 36%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.0) 51%,
+    rgba(255,255,255,0.0) 100%
+  );
+}
+
+
+.photo {
+  position: absolute;
+  right: 55px;
+  top: 55px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 8px solid rgba(255,255,255,0.65);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.photo-text {
+  font-weight: bold;
+  color: #1f2a35;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.content {
+  display: flex;
+  padding: 20px 30px 30px 40px;
+}
+
+.left {
+  width: 60%;
+  padding-right: 25px;
+}
+
+.right {
+  width: 40%;
+  padding-left: 25px;
+}
+
+.section {
+  margin-bottom: 22px;
+}
+
+.section h2 {
+  margin: 0 0 10px 0;
+  color: #4fc3ff;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.section p {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6a6a6a;
+}
+
+
+.item {
+  margin-top: 14px;
+}
+
+.item-title {
+  font-size: 13px;
+  color: #2b2b2b;
+  margin-bottom: 6px;
+}
+
+.item-title .years {
+  font-weight: bold;
+}
+
+.item-title .job {
+  font-weight: bold;
+}
+
+.item-title .sep {
+  margin: 0 6px;
+  color: #8a8a8a;
+}
+
+
+.contacts p {
+  margin: 6px 0;
+  color: #5f5f5f;
+}
+.right-title {
+  margin: 0;
+  color: #2d3c4a;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.dots.small {
+  width: 180px;
+  border-bottom: 3px dotted #2d3c4a;
+  margin: 10px 0 14px 0;
+  opacity: 0.6;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.bar-label {
+  width: 90px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #2d3c4a;
+}
+
+.bar {
+  width: 200px;
+  height: 12px;
+  background: #e9f6ff;
+  border: 1px solid #cfefff;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #4fc3ff;
+}
+
+
+.edu-title {
+  color: #4fc3ff;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 8px 0 10px 0;
+}
+
+.edu-title .light {
+  color: #2d3c4a;
+}
+
+.edu-item {
+  margin-top: 14px;
+}
+
+.edu-head {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2d3c4a;
+  margin-bottom: 6px;
+}
+
+   </style>
+</head>
+<body>
+
+  <div class="cv">
+
+    
+    <div class="header">
+      <div class="header-left">
+        <div class="name">
+          <span class="first">SALIM</span>
+          <span class="last">HAMINE</span>
+        </div>
+        <div class="dots"></div>
+      </div>
+
+      <div class="header-right">
+        <div class="photo">
+
+
+           
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Logo_esi_1.jpg" alt="Photo" />
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="content">
+      
+      <div class="left">
+        <div class="section">
+          <h2>Mes objectifs</h2>
+          <p>
+             Étudiant en première année du cycle d’ingénieur en cybersécurité, je vise à acquérir de solides compétences en sécurité des systèmes, réseaux et applications. Sérieux, motivé et passionné par la protection des données et la gestion des risques, je cherche à développer mon savoir-faire à travers des projets et des stages afin de devenir un ingénieur en cybersécurité compétent et responsable.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Expérience professionnelle</h2>
+
+           
+
+          <div class="item">
+            <div class="item-title">
+              <span class="years">2024 – 2025</span>
+              <span class="job">Stage</span>
+              <span class="sep">-</span>
+              <span class="place">hotel banyaan tree tamouda</span>
+            </div>
+            <p>
+              Tes responsabilités, outils utilisés, et ce que tu as livré.
+            </p>
+          </div>
+
+           Installation et raccordement du câblage réseau (RJ45).
+
+Organisation des baies de brassage et étiquetage des connexions.
+
+Tests et vérification du réseau.
+
+Support à la maintenance des équipements réseau.
+
+        </div>
+
+        <div class="section contacts">
+          <h2>Mes contacts</h2>
+          <p><b>Mob :</b> 0694521512</p>
+          <p><b>Mail :</b> haminesalim@gmail.com</p>
+          <p><b>Adresse :</b> Tetouan, Maroc</p>
+        </div>
+      </div>
+
+    
+      <div class="right">
+
+        <div class="section">
+          <h3 class="right-title">PERSONNALITÉ</h3>
+          <div class="dots small"></div>
+
+          <div class="bar-row">
+            <div class="bar-label">ORGANISÉ</div>
+            <div class="bar">
+              <div class="bar-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label">CRÉATIF</div>
+            <div class="bar">
+              <div class="bar-fill" style="width: 70%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label">LEADER</div>
+            <div class="bar">
+              <div class="bar-fill" style="width: 60%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3 class="right-title">LANGUES</h3>
+          <div class="dots small"></div>
+
+          <div class="bar-row">
+            <div class="bar-label">ARABE</div>
+            <div class="bar">
+              <div class="bar-fill" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label">FRANÇAIS</div>
+            <div class="bar">
+              <div class="bar-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-label">ANGLAIS</div>
+            <div class="bar">
+              <div class="bar-fill" style="width: 65%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="edu-title">Formation <span class="light">/ Parcours scolaire</span></h2>
+
+          <div class="edu-item">
+            <div class="edu-head">2025 - Deug en informatique-  Université abdelmalek asaadi</div>
+            <p>
+               DEUG en Informatique axé sur les fondamentaux de la programmation, des systèmes informatiques, des bases de données et des réseaux, offrant une base solide pour la poursuite d’études supérieures en informatique.
+            </p>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-head">2023- bacalaureat sp</div>
+            <p>
+              
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

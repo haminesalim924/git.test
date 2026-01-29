@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>AlgoLearn-6X — Cours</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220; --bg-elev:#111827; --text:#e5e7eb; --muted:#9ca3af;
+      --primary:#1560BD; --accent:#00BFA6; --border:rgba(255,255,255,.08);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --space-1:.5rem; --space-2:.75rem; --space-3:1rem; --space-4:1.5rem; --space-6:2rem;
+      --container:1100px; --focus:0 0 0 3px rgba(0,191,166,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f8fb; --bg-elev:#ffffff; --text:#0b1220; --muted:#475569; --border:rgba(17,24,39,.08); }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background: var(--bg); color: var(--text); line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    :focus-visible{outline:none; box-shadow:var(--focus)}
+    .container{max-width:var(--container); margin-inline:auto; padding:0 var(--space-3)}
+
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg), transparent 15%);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0}
+    .brand{display:flex; gap:.6rem; align-items:center; font-weight:800; letter-spacing:.2px}
+    .logo{
+      width:34px; aspect-ratio:1; border-radius:12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: var(--shadow);
+    }
+    .nav a{color:var(--text); text-decoration:none; padding:.45rem .65rem; border-radius:10px}
+    .nav a:hover{background: color-mix(in oklab, var(--primary), transparent 88%)}
+    .cta{
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color:#fff !important; padding:.55rem .9rem; border-radius:14px; box-shadow: var(--shadow);
+    }
+
+    .hero{padding: clamp(2rem, 4vw, 3rem) 0 1rem 0}
+    .hero h1{margin:.2rem 0 .5rem 0; font-size: clamp(1.6rem, 4vw, 2.2rem)}
+    .muted{color:var(--muted)}
+
+    .page-title{margin: 1.2rem 0 .6rem 0; font-size: clamp(1.4rem, 3vw, 1.9rem)}
+    .section-head{
+      display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+      margin-top: 1.2rem;
+    }
+    .section-sub{margin:0 0 .6rem 0; color:var(--muted)}
+    .divider{height:1px; background:var(--border); border:0; margin: 1rem 0}
+
+    .courses-grid{
+      display:grid; gap:1.1rem; margin: 1rem 0 2.2rem 0;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width:1200px){ .courses-grid{grid-template-columns: repeat(3,1fr)} }
+    @media (max-width:880px){ .courses-grid{grid-template-columns: repeat(2,1fr)} }
+    @media (max-width:560px){ .courses-grid{grid-template-columns: 1fr} }
+
+    .course-card{
+      background: var(--bg-elev); border:1px solid var(--border);
+      border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow);
+      display:flex; flex-direction:column;
+    }
+    .course-cover{
+      width:100%; aspect-ratio: 16/9;
+      background: linear-gradient(135deg,
+        color-mix(in oklab, var(--primary), white 10%),
+        color-mix(in oklab, var(--accent), black 10%)
+      );
+      display:flex; align-items:flex-end; justify-content:space-between;
+      padding: .8rem; gap:.6rem;
+    }
+    .cover-badge{
+      background: rgba(0,0,0,.35); color:#fff; font-size:.8rem;
+      padding:.25rem .5rem; border-radius:999px; border:1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(4px);
+      white-space:nowrap;
+    }
+    .cover-tag{
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(0,0,0,.25); color:#fff; font-size:.75rem;
+      padding:.22rem .45rem; border-radius:999px; border:1px solid rgba(255,255,255,.18);
+      white-space:nowrap;
+    }
+    .course-body{padding:.95rem 1rem 1.1rem 1rem}
+    .course-title{font-size:1.05rem; margin:.2rem 0 .35rem 0}
+    .course-author{font-size:.9rem; color:var(--muted); margin-bottom:.25rem}
+    .course-desc{font-size:.92rem; color:var(--muted)}
+    .course-actions{margin-top:.8rem}
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.48rem .75rem; border-radius:12px; border:1px solid var(--border);
+      color:var(--text); text-decoration:none;
+    }
+    .btn:hover{background: color-mix(in oklab, var(--primary), transparent 88%)}
+
+    footer{padding:2rem 0 3rem 0}
+    .foot{display:flex; align-items:center; justify-content:space-between; gap:1rem}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <span>AlgoLearn-6X</span>
+      </a>
+      <nav>
+        <a href="#langages">Langages</a>
+        <a href="#algorithmes">Algorithmes</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Cours</h1>
+      <p class="muted">Parcours et modules pour étudiants & autodidactes, du niveau facile au difficile.</p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <div class="section-head" id="langages">
+      <h2 class="page-title" style="margin:0">Langages de programmation</h2>
+    </div>
+    <p class="section-sub">HTML, CSS, JavaScript, Python, C, C++, PHP, SQL.</p>
+
+    <section class="courses-grid">
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Frontend</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">HTML5</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Sémantique, sections, formulaires, médias, accessibilité.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1h8fALXrNS98hW0YlXVGgU3WAcadrx0Wx/view?usp=sharing"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Frontend</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">CSS3</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Flexbox, Grid, responsive, animations, bonnes pratiques UI.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1h8fALXrNS98hW0YlXVGgU3WAcadrx0Wx/view?usp=sharing"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Web</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">JavaScript</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Syntaxe, fonctions, tableaux, objets — bases solides pour le web.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1dRBmzEicaaFq8jAlUglDqxgz5UX3e2jc/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Backend</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Python</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Variables, conditions, boucles, fonctions, bonnes pratiques.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/115B24mgH5bvrM9Sm1bxvDXsJSkGXj5PG/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Système</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">C</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Types, pointeurs, tableaux, mémoire, fichiers, complexité.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1zdIi948h5rytoiQiENFsoBFZFWZZG1S6/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Performance</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">C++</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">POO, templates, STL, gestion mémoire moderne, pratiques.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1N0Pa00__jmWZZLAmRRDNh6XqR4qQpe2J/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Web</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">PHP</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Syntaxe, formulaires, sessions, PDO, mini-projets serveur.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/u/2/d/1W6U9utjlyVzLSW4AFR_4OjYr016EEhZA/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">DB</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">SQL</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">SELECT, JOIN, contraintes, index, vues, bonnes pratiques.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/10THQ2LXpWfTlA6jk_2blLT7jA8_Uv7VK/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <hr class="divider">
+
+    <div class="section-head" id="algorithmes">
+      <h2 class="page-title" style="margin:0">Algorithmes</h2>
+    </div>
+    <p class="section-sub">Tri, listes/chaînes, arbres, piles/files, BFS/DFS, tables de hachage, Dijkstra, etc.</p>
+
+    <section class="courses-grid">
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Tous niveaux</span>
+          <span class="cover-tag">Basics</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Tri</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Sélection, insertion, fusion, rapide — idées + complexité.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1IF-Z-EZzdVU_kZvIHnP6Ka4-HQBTMbGN/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Data</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Listes</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Listes chaînées, opérations, cas classiques, pièges.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1JEmF7O_jj7X-YOvrBbt3uyJ3jB6P22Fw/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Trees</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Arbres</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Arbre binaire, BST, hauteur, parcours, propriétés.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1KgMM0uAMn8EdSrwQ6Hxjcak5GnlkSjzD/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Patterns</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Min / Max</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Recherche min/max, variantes, complexité, cas limites.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1InCVUwpD_ePVkThzL_X5w119Fu3n9VaA/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Stack</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Pile</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">LIFO, implémentations, parenthèses, undo, monotonic stack.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/12xEqWojJWOxI_W7N8aLNeZJFj2hNbIFz/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Débutant</span>
+          <span class="cover-tag">Queue</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">File</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">FIFO, file circulaire, BFS, simulations et scénarios.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1-HHZ_xmna-vFPrBs2MHKZLWJYY3Tf-H8/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Graph</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Parcours BFS</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Niveaux, distances en graphes non pondérés, file.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1X_4nEE4DpTfccXJavRvlHtB9R7ldfdSw/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Graph</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Parcours DFS</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Pile/récursion, composantes, détection de cycles.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1O2XaNPmKqm-3bd5h0Mw9Jg5mGdkm56rx/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Intermédiaire</span>
+          <span class="cover-tag">Hash</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Table de hachage</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Hash, collisions, complexité amortie, cas pratiques.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/1k1Ffu0QOHvvaWnlfYUZR1XQHTswUBGyv/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card">
+        <div class="course-cover">
+          <span class="cover-badge">Avancé</span>
+          <span class="cover-tag">Shortest</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Algorithme de Dijkstra</h3>
+          <div class="course-author">Par Équipe AlgoLearn-6X</div>
+          <p class="course-desc">Plus courts chemins, file de priorité, complexité.</p>
+          <div class="course-actions">
+            <a class="btn"
+               href="https://drive.google.com/file/d/135l9uJsdDBE3ZVFpqQ0vCOhK053vqIfN/view"
+               target="_blank" rel="noopener">Accéder</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <hr style="border:0;border-top:1px solid var(--border)">
+    <div class="foot">
+      <span class="muted">© 2025 AlgoLearn-6X</span>
+      <a class="muted" href="#">Mentions légales</a>
+    </div>
+  </footer>
+</body>
+</html>

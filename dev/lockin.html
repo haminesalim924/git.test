@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Inscription</title>
+    <style>
+        body { font-family: Arial; }
+        .error { color: red; font-size: 14px; margin: 0; }
+        .success { color: green; font-weight: bold; }
+        input { display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+<h2>Formulaire d'inscription</h2>
+
+<form>
+    Nom:
+    <input type="text" id="nom">
+    <p id="errNom" class="error"></p>
+
+    Email:
+    <input type="email" id="email">
+    <p id="errEmail" class="error"></p>
+
+    Mot de passe:
+    <input type="password" id="mdp">
+    <p id="errMdp" class="error"></p>
+
+    Confirmer mot de passe:
+    <input type="password" id="cmdp">
+    <p id="errCmdp" class="error"></p>
+
+    Âge:
+    <input type="number" id="age">
+    <p id="errAge" class="error"></p>
+
+    <button type="button" onclick="valider()">S'inscrire</button>
+</form>
+
+<p id="resultat"></p>
+<script src="lockin.js"></script>

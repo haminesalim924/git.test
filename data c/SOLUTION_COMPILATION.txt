@@ -1,0 +1,67 @@
+================================================================================
+SOLUTION POUR L'ERREUR "collect2.exe: error: ld returned 1 exit status"
+================================================================================
+
+Cette erreur indique un probleme de linkage (liaison des bibliotheques).
+
+SOLUTION 1 : Utiliser la commande complete (32-bit MinGW)
+================================================================================
+
+Ouvrez un terminal dans le dossier "web\data c\" et executez :
+
+gcc -I"C:\Users\ALI\Desktop\SDL2-2.30.3\include" -o taquin.exe taquin.c "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x86\SDL2.lib" -lwinmm -limm32 -lversion -lsetupapi -static-libgcc
+
+Puis copiez SDL2.dll :
+copy "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x86\SDL2.dll" .
+
+IMPORTANT : 
+- Utilisez x86 car vous avez MinGW 32-bit
+- Ne PAS utiliser SDL2main.lib avec MinGW (incompatible)
+- Le code utilise #define SDL_MAIN_HANDLED pour utiliser main() normalement
+
+
+SOLUTION 2 : Utiliser le script compile_manual.bat
+================================================================================
+
+Double-cliquez sur "compile_manual.bat" dans le dossier "web\data c\"
+
+
+SOLUTION 3 : Si vous avez un compilateur 64-bit
+================================================================================
+
+Utilisez les bibliotheques x64 :
+
+gcc -I"C:\Users\ALI\Desktop\SDL2-2.30.3\include" -o taquin.exe taquin.c "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x64\SDL2.lib" -lwinmm -limm32 -lversion -lsetupapi -static-libgcc
+
+Puis copiez SDL2.dll :
+copy "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x64\SDL2.dll" .
+
+
+EXPLICATION DES BIBLIOTHEQUES
+================================================================================
+
+- "SDL2.lib"  : Bibliotheque principale SDL2 (chemin complet car MinGW)
+- -lwinmm     : Windows Multimedia (requis par SDL2)
+- -limm32     : Input Method Manager (requis par SDL2)
+- -lversion   : Version Information (requis par SDL2)
+- -lsetupapi  : Setup API (requis par SDL2)
+- -static-libgcc : Lie statiquement libgcc (evite les problemes de DLL)
+
+NOTE : SDL2main.lib n'est PAS utilise car il est compile avec MSVC et
+       incompatible avec MinGW. Le code utilise #define SDL_MAIN_HANDLED
+       pour utiliser main() normalement.
+
+
+VERIFICATIONS
+================================================================================
+
+1. Verifiez que GCC est installe :
+   gcc --version
+
+2. Verifiez que les fichiers existent :
+   dir "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x64\SDL2.lib"
+   dir "C:\Users\ALI\Desktop\SDL2-2.30.3\include\SDL.h"
+
+3. Si vous avez toujours des erreurs, essayez sans -mwindows pour voir
+   les messages d'erreur complets
+

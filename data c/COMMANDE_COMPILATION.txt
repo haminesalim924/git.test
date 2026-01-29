@@ -1,0 +1,24 @@
+================================================================================
+COMMANDE DE COMPILATION CORRIGEE (32-bit MinGW)
+================================================================================
+
+Commande complete qui fonctionne :
+
+gcc -I"C:\Users\ALI\Desktop\SDL2-2.30.3\include" -o taquin.exe taquin.c "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x86\SDL2.lib" -lwinmm -limm32 -lversion -lsetupapi -static-libgcc
+
+Puis copiez SDL2.dll :
+copy "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x86\SDL2.dll" .
+
+
+IMPORTANT : 
+- Utilisez x86 (32-bit) car vous avez MinGW 32-bit
+- Ne pas utiliser SDL2main.lib avec MinGW (il est compile avec MSVC)
+- Le code utilise maintenant #define SDL_MAIN_HANDLED pour utiliser main() normalement
+
+
+Si vous avez un compilateur 64-bit, utilisez x64 au lieu de x86 :
+gcc -I"C:\Users\ALI\Desktop\SDL2-2.30.3\include" -o taquin.exe taquin.c "C:\Users\ALI\Desktop\SDL2-2.30.3\lib\x64\SDL2.lib" -lwinmm -limm32 -lversion -lsetupapi -static-libgcc
+
+
+
+

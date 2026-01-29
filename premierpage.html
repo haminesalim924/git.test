@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Première Page HTML5</title>
+</head>
+<body>
+     <header>
+    <h1>Bienvenue sur ma page personnelle</h1>
+    <p>Je m'appelle salim et j'apprends le HTML5</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#hobbies">Mes hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="apropos">
+    <h2>À propos de moi</h2>
+    <article>
+        <p>Je suis en train d'apprendre le <strong>HTML5</strong> et c'est très <em>intéressant</em> !</p>
+        <p>J'ai découvert que le HTML5 a été publié en <time datetime="2014-10-28">2014</time>.</p>
+    </article>
+</section>
+<section id="hobbies">
+    <h2>Mes centres d'intérêt</h2>
+    <p>Voici ce que j'aime faire :</p>
+    <ol>
+        <li>Apprendre le développement web</li>
+        <li>Écouter de la musique</li>
+        <li>Lire des livres</li>
+    </ol>
+    
+    <h3>Ma citation préférée</h3>
+    <blockquote>
+        <p>"Le seul véritable échec est de ne pas essayer."</p>
+        <cite>- George Clooney</cite>
+    </blockquote>
+</section>
+Ajoute :
+<section>
+    <h3>Mon emploi du temps hebdomadaire</h3>
+    <table border="1">
+        <caption>Activités de la semaine</caption>
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Activité</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lundi</td>
+                <td>Apprendre HTML</td>
+            </tr>
+            <tr>
+                <td>Mardi</td>
+                <td>Pratiquer CSS</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section id="contact">
+    <h2>Contactez-moi</h2>
+    <form>
+        <fieldset>
+            <legend>Informations de contact</legend>
+            	
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" placeholder="Votre nom" required><br><br>
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" placeholder="votre@email.com" required><br><br>
+            
+            <label for="message">Message :</label><br>
+            <textarea id="message" rows="4" cols="40" placeholder="Votre message..."></textarea><br><br>
+            
+            <button type="submit">Envoyer</button>
+        </fieldset>
+    </form>
+</section>
+<section>
+    <h2>Mes éléments multimédias</h2>
+    
+    <h3>Une image</h3>
+    <figure>
+        <img src=https://i.redd.it/8izmsce0dybe1.jpeg alt="Image d'exemple">
+        <figcaption>Ceci est une image d'exemple</figcaption>
+    </figure>
+    
+    <h3>Une vidéo</h3>
+    <video controls width="300">
+        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+</section>
+<footer>
+    <hr>
+    <p><small>&copy; 2023 Ma Première Page HTML5. Tous droits réservés.</small></p>
+    <address>
+        Contact : <a href="mailto:ton@email.com">haminesalim924@gmail.com</a>
+    </address>
+</footer>
+
+<aside>
+    <details>
+        <summary>Information supplémentaire</summary>
+        <p>Cette page a été créée en utilisant uniquement des balises HTML5, sans CSS.</p>
+        <p>L'abréviation <abbr title="HyperText Markup Language">HTML</abbr> signifie "HyperText Markup Language".</p>
+    </details>
+</aside>
+
+
+
+
+
+
+</body>
+
+</html>
